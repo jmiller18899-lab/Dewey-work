@@ -1,0 +1,21 @@
+{
+  "name": "clawagent-platform",
+  "version": "1.0.0",
+  "description": "ClawAgent sales and lead capture platform — frontend + Express gateway routes (leads, sales chat, Grok Voice sessions, Twilio outreach, ntfy attestation).",
+  "private": true,
+  "type": "module",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js",
+    "test": "node --test server/test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  }
+}
