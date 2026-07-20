@@ -889,7 +889,12 @@
     (() => {
       "use strict";
 
-      const API_BASE = window.CLAWAGENT_API_BASE || "https://clawagent-production-6805.up.railway.app";
+      // Same-origin by default: server/index.js serves this frontend and the
+      // gateway API from one host, so relative requests ("" + "/health") always
+      // reach the serving gateway — no cross-origin hop, no CORS, works in local
+      // dev and any standalone deploy. Set window.CLAWAGENT_API_BASE only when the
+      // gateway is mounted on a *different* origin than the frontend.
+      const API_BASE = window.CLAWAGENT_API_BASE || "";
       const sessionId = getSessionId();
       const $ = (selector) => document.querySelector(selector);
       const $$ = (selector) => Array.from(document.querySelectorAll(selector));
